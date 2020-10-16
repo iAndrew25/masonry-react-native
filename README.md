@@ -4,14 +4,14 @@ A simple React Native implementation of Masonry layout, using ScrollView.
 ## Features
  * allows rendering any type of content inside a `View`.
  * calculates each column's height and adds a new `View` to the smallest column, so no space will be wasted.
- * can be used with `LayoutAnimation` for a nicer render animations.
+ * can be used with `LayoutAnimation` for a nicer render animation.
  * API similar with `FlatList`
  
 ![preview](./example/preview.gif)
 
 ## Usage
 ### Install
-You can install it using Node Package Manager (`npm`):
+Using Node Package Manager (`npm`):
 
 ```
 $ npm install masonry-react-native
