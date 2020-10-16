@@ -28,7 +28,7 @@ function App() {
 				data={data}
 				numberOfColumns={4}
 				keyExtractor={item => item.id}
-				renderItem={({ item }) => () => {
+				renderItem={({ item }) => {
 					const {title, description} = item;
 
 					return (
