@@ -12,29 +12,7 @@ const mockData = patternMock({
 			description: 'SENTENCE'
 		}],
 		__config__: {
-			length: 3
-		}
-	}
-}).data;
-
-
-const mockDatas = patternMock({
-	data: {
-		__pattern__: [
-			{
-				id: 'COUNTER',
-				color: 'COLOR',
-				word: 'WORD',
-				height: {
-					__pattern__: [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150],
-					__config__: {
-						shouldPickOne: true
-					}
-				}
-			}
-		],
-		__config__: {
-			length: 3
+			length: 7
 		}
 	}
 }).data;
@@ -48,7 +26,7 @@ function App() {
 		<View style={styles.wrapper}>
 			<Masonry
 				data={data}
-				numberOfColumns={3}
+				numberOfColumns={4}
 				keyExtractor={item => item.id}
 				renderItem={({ item }) => () => {
 					const {title, description} = item;
@@ -74,6 +52,7 @@ const styles = StyleSheet.create({
 		backgroundColor: '#eee'
 	},
 	item: {
+		width: 90,
 		backgroundColor: '#fff',
 		borderRadius: 4,
 		padding: 8,
