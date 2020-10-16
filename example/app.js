@@ -4,41 +4,39 @@ import patternMock from 'pattern-mock';
 
 import Masonry from '../lib';
 
-const mockData = patternMock({
-	data: {
-		__pattern__: [
+const getMultipleItems = () =>
+	patternMock({
+		items: [
 			{
 				id: 'NUMBER',
 				title: 'FULL_NAME',
 				description: 'SENTENCE',
 				backgroundColor: 'COLOR'
 			}
-		],
-		__config__: {
-			length: 10
-		}
-	}
-}).data;
+		]
+	}).items;
+
+const getNewItem = () =>
+	patternMock({
+		id: 'NUMBER',
+		title: 'FULL_NAME',
+		description: 'SENTENCE',
+		backgroundColor: 'COLOR'
+	});
 
 function App() {
-	const [data, setData] = useState(mockData);
+	const [data, setData] = useState(getMultipleItems());
 
-	const getNewItem = () =>
-		patternMock({
-			id: 'NUMBER',
-			title: 'FULL_NAME',
-			description: 'SENTENCE',
-			backgroundColor: 'COLOR'
-		});
-
-	const handleOnRemoveAll = () => setData([]);
-	const handleOnRemove = item => setData(prevData => prevData.filter(({ id }) => id !== item.id));
 	const handleOnAdd = () => setData(prevData => [...prevData, getNewItem()]);
+	const handleOnMultipleAdd = () => setData(prevData => [...prevData, ...getMultipleItems()]);
+	const handleOnRemove = item => setData(prevData => prevData.filter(({ id }) => id !== item.id));
+	const handleOnRemoveAll = () => setData([]);
 
 	return (
 		<View style={styles.wrapper}>
 			<View style={styles.actions}>
 				<Text onPress={handleOnAdd}>Add new item</Text>
+				<Text onPress={handleOnMultipleAdd}>Add multiple items</Text>
 				<Text onPress={handleOnRemoveAll}>Remove all items</Text>
 			</View>
 			<Masonry
