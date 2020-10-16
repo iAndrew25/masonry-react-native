@@ -7,7 +7,7 @@ A simple React Native implementation of Masonry layout, using ScrollView.
  * can be used with `LayoutAnimation` for a nicer render animation.
  * API similar with `FlatList`
  
-![preview](./example/preview.gif)
+![preview](https://raw.githubusercontent.com/iAndrew25/masonry-react-native/master/example/preview.gif)
 
 ## Usage
 ### Install
