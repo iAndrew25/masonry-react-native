@@ -1,17 +1,19 @@
-import React, {useState} from 'react';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import patternMock from 'pattern-mock';
 
 import Masonry from '../lib';
 
 const mockData = patternMock({
 	data: {
-		__pattern__: [{
-			id: 'NUMBER',
-			title: 'FULL_NAME',
-			description: 'SENTENCE',
-			backgroundColor: 'COLOR'
-		}],
+		__pattern__: [
+			{
+				id: 'NUMBER',
+				title: 'FULL_NAME',
+				description: 'SENTENCE',
+				backgroundColor: 'COLOR'
+			}
+		],
 		__config__: {
 			length: 10
 		}
@@ -21,37 +23,35 @@ const mockData = patternMock({
 function App() {
 	const [data, setData] = useState(mockData);
 
-	const getNewItem = () => patternMock({
-		id: 'NUMBER',
-		title: 'FULL_NAME',
-		description: 'SENTENCE',
-		backgroundColor: 'COLOR'		
-	});
+	const getNewItem = () =>
+		patternMock({
+			id: 'NUMBER',
+			title: 'FULL_NAME',
+			description: 'SENTENCE',
+			backgroundColor: 'COLOR'
+		});
 
 	const handleOnRemoveAll = () => setData([]);
-	const handleOnRemove = item => setData(prevData => prevData.filter(({id}) => id !== item.id));
+	const handleOnRemove = item => setData(prevData => prevData.filter(({ id }) => id !== item.id));
 	const handleOnAdd = () => setData(prevData => [...prevData, getNewItem()]);
 
 	return (
 		<View style={styles.wrapper}>
-		<View style={styles.actions}>
-			<Text onPress={handleOnAdd}>Add new item</Text>
-			<Text onPress={handleOnRemoveAll}>Remove all items</Text>
-		</View>
+			<View style={styles.actions}>
+				<Text onPress={handleOnAdd}>Add new item</Text>
+				<Text onPress={handleOnRemoveAll}>Remove all items</Text>
+			</View>
 			<Masonry
 				data={data}
-				numberOfColumns={4}
+				numberOfColumns={3}
 				keyExtractor={item => item.id}
 				renderItem={({ item }) => {
-					const {title, description, backgroundColor} = item;
+					const { title, description, backgroundColor } = item;
 
 					return (
-						<TouchableOpacity
-							onPress={() => handleOnRemove(item)}
-							style={[styles.item, {backgroundColor}]}
-						>
-							<Text style={styles.title}> {title} </Text>
-							<Text style={styles.description}> {description} </Text>
+						<TouchableOpacity onPress={() => handleOnRemove(item)} style={[styles.item, { backgroundColor }]}>
+							<Text style={styles.title}>{title}</Text>
+							<Text style={styles.description}>{description}</Text>
 						</TouchableOpacity>
 					);
 				}}
@@ -66,11 +66,11 @@ const styles = StyleSheet.create({
 		backgroundColor: '#eee'
 	},
 	item: {
-		width: 90,
+		width: 125,
 		backgroundColor: '#fff',
 		borderRadius: 4,
 		padding: 8,
-		margin: 4,
+		margin: 4
 	},
 	title: {
 		color: '#fff',
