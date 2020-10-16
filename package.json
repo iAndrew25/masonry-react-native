@@ -1,7 +1,15 @@
 {
-  "name": "masonryReactNative",
-  "version": "0.0.1",
-  "private": true,
+  "name": "masonry-react-native",
+  "version": "1.0.0",
+  "description": "A simple React Native implementation of Masonry layout, using ScrollView.",
+  "main": "lib/index.js",
+  "homepage": "https://github.com/iAndrew25/masonry-react-native",
+  "author": "Andrew",
+  "license": "MIT",
+  "files": [
+      "lib/index.js",
+      "lib/utils.js"
+  ],
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -9,6 +17,14 @@
     "test": "jest",
     "lint": "eslint ."
   },
+  "keywords": [
+    "masonry",
+    "react",
+    "masonry layout",
+    "masonry list",
+    "react-native",
+    "scrollview"
+  ],
   "devDependencies": {
     "react": "16.13.1",
     "react-native": "0.63.3",
